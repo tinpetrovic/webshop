@@ -36,7 +36,7 @@ useEffect(() => {
   for(let i = 0; i < inCart.length; i++) {
     if (inCart[i].name === "Motion Sensor" && inCart[i].qt % 3 == 0) {
      console.log("discount Motion Sensor")
-     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 21.67} : y))
+     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 21.666} : y))
    } else if (inCart[i].name === "Smoke Sensor" && inCart[i].qt % 2 == 0) {
     console.log("discount Smoke sensor")
     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 17.5} : y))
