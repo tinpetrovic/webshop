@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/webshop/static/css/main.ce3cb21a.css",
-    "main.js": "/webshop/static/js/main.cbcb6e35.js",
+    "main.js": "/webshop/static/js/main.ccfd513d.js",
     "static/media/Smart+Hub.jpg": "/webshop/static/media/Smart+Hub.3d9aacc7595b79484098.jpg",
     "static/media/water-leak-sensor.png": "/webshop/static/media/water-leak-sensor.8e5245ea5e407eaff9b6.png",
     "static/media/wireless-camera.jpg": "/webshop/static/media/wireless-camera.f7f5155859777b0d0f68.jpg",
@@ -9,10 +9,10 @@
     "static/media/smoke-sensor.jpg": "/webshop/static/media/smoke-sensor.d307113ac5cb82fa758c.jpg",
     "index.html": "/webshop/index.html",
     "main.ce3cb21a.css.map": "/webshop/static/css/main.ce3cb21a.css.map",
-    "main.cbcb6e35.js.map": "/webshop/static/js/main.cbcb6e35.js.map"
+    "main.ccfd513d.js.map": "/webshop/static/js/main.ccfd513d.js.map"
   },
   "entrypoints": [
     "static/css/main.ce3cb21a.css",
-    "static/js/main.cbcb6e35.js"
+    "static/js/main.ccfd513d.js"
   ]
 }
