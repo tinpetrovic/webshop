@@ -1,0 +1,23 @@
+@import "../../colors";
+
+.main-container {
+    background-color: $accent2-clr;
+    min-height: 100vh;
+    margin-top: 100px;
+}
+
+.main-wrapper {
+    padding: 2em;
+    text-align: center;
+}
+
+.main-wrapper h1 {
+    margin-bottom: 2em;
+    
+}
+
+.products-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1em;
+}

@@ -1,0 +1,86 @@
+@import "../../colors";
+
+.promotions-container h3 {
+    margin-bottom: .5em
+}
+
+.promotions-btns-wrapper {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+}
+.prom-wrap {
+    margin: .5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.prom-btn {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 50px;
+    background-color: $proms;
+    border: 0;
+    margin: 0 .5em;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: rgb(212, 212, 212);
+    }
+}
+
+.clear-prom-btn {
+    background-color: rgb(150, 109, 93);
+
+    &:hover,
+    &:focus {
+    background-color: rgb(161, 124, 124);
+    }
+}
+
+.prom-btn .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    bottom: 30;
+    background-color: $black-clr;
+    color: $white-clr;
+    text-align: center;
+    padding: 5px;
+    font-size: 10px;
+}
+
+.prom-btn:hover .tooltiptext,
+.prom-btn:focus .tooltiptext {
+    visibility: visible;
+}
+
+:disabled {
+    cursor: not-allowed;
+    background: $disabled;
+
+    &:hover {
+    cursor: not-allowed;
+    background: $disabled;
+    }
+}
+
+@media(min-width: 720px) {
+    .promotions-btns-wrapper {
+        flex-direction: row;
+    }
+
+    .prom-wrap {
+        flex-direction: column;
+    }
+
+    .promotions-btns-wrapper {
+        height: 100px;
+    }
+}

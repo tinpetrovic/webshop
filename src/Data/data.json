@@ -1,0 +1,37 @@
+
+  { "products": [
+        {   
+            "id": 0,
+            "name": "Smart Hub",
+            "price": 49.99,
+            "image": "../../../public/images/Smart+Hub.jpg"
+        },
+
+        {
+            "id": 1,
+            "name": "Motion Sensor",
+            "price": 24.99,
+            "image": "../../../public/images/motion-sensor.jpg"
+        },
+
+        {
+            "id": 2,
+            "name": "Wireless Camera",
+            "price": 99.99,
+            "image": "../../../public/images/wireless-camera.jpg"
+        },
+
+        {
+            "id": 3,
+            "name": "Smoke Sensor",
+            "price": 19.99,
+            "image": "../../../public/images/smoke-sensor.jpg"
+        },
+
+        {
+            "id": 4,
+            "name": "Water Leak Sensor",
+            "price": 14.99,
+            "image": "../../../public/images/water-leak-sensor.png"
+        }
+    ]}

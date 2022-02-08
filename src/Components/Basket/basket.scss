@@ -1,0 +1,148 @@
+@import "../../colors";
+
+.basket-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    min-height: calc(100% + 100px);
+}
+
+.basket-container h1 {
+    margin-top: calc(100px + 1em);
+    margin-bottom: 1em;
+}  
+
+.empty-basket {
+background-color: $white-clr;
+}
+
+.basket-wrapper {
+    background-color: $accent2-clr;
+    width: 90%;
+    padding: 1em
+}
+
+.basket-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em;
+    border-bottom: 2px solid $black-clr;
+    margin-bottom: 1em;
+}
+
+.name-btn-wrapp {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.basket-btn-wrapper {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(214, 214, 214);
+    margin-top: .5em;
+    border-radius: 100px;
+}
+
+.basket-btn-wrapper p {
+    width: 33%;
+    text-align: center;
+    font-weight: 700;
+}
+
+.basket-btn-wrapper button {
+    width: 33%;
+    border: 0;
+    background-color: $btn;
+    color: $white-clr;
+}
+
+.clear-btn {
+    border: 0;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    padding: .5em 1.5em
+}
+
+.basket-add-btn {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    padding: .5em 1.5em 
+}
+
+.basket-remove-btn {
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    padding: .5em 1.5em 
+}
+
+.basket-add-btn:hover,
+.basket-add-btn:focus,
+.basket-remove-btn:hover,
+.basket-remove-btn:focus,
+.clear-btn:focus,
+.clear-btn:hover {
+    color: $white-clr;
+    background-color: $accent-clr;
+}
+
+.basket-total {
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.order-btn {
+    margin-top: 1em;
+    padding: 1.5em 4em;
+    background-color: $white-clr;
+    color: $black-clr;
+    border: 1px solid $black-clr;
+    text-transform: uppercase;
+    transition: .4s ease;
+
+    &:hover,
+    &:focus {
+    background-color: $accent-clr;
+    color: $white-clr;
+    border: 1px solid $white-clr;
+    }
+}
+
+.my-order {
+    padding: 1em;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: $accent2-clr;
+}
+
+.my-order h2 {
+    text-align: center;
+    margin-bottom: .5em;
+}
+
+.my-order p + p,
+.my-order div {
+    margin-top: .3em;
+}
+
+.my-order--heading {
+    font-weight: 700;
+}
+
+
+@media(min-width: 720px) {
+    .name-btn-wrapp {
+        flex-direction: row;
+    }
+}

@@ -1,0 +1,47 @@
+@import "../../_colors.scss";
+
+.product-container {
+background-color: $white-clr;
+padding: 1em;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+position: relative;
+}
+
+.product-container img {
+    height: 200px;
+    width: 200px;
+}
+
+.product-container h3,
+.product-container p {
+
+    margin-bottom: .5em;
+}
+
+.product-container h3::before {
+    content: "";
+    position:absolute;
+    bottom:85px;
+    left:25px;
+    right: 25px;
+    height: 1px;
+    background: $black-clr;
+}
+
+.product-add-btn {
+    border-radius: 0;
+    border: 2px solid $white-clr;;
+    background-color: $black-clr;
+    color: $white-clr;
+    padding: .5em 1.5em;
+
+    &:hover,
+    &:focus {
+    color: $black-clr;
+    background-color: $white-clr;
+    border: 2px solid $black-clr;
+    }
+}
