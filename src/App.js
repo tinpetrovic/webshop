@@ -27,15 +27,6 @@ function App() {
   }
  }
 
- useEffect(() => {
-  for(let i = 0; i < inCart.length; i++) {
-    if (inCart[i].name === "Motion Sensor" && inCart[i].qt % 3 == 0) {
-     console.log("discount")
-     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[0], price: 21.666} : y))
-     console.log(inCart[i].id)
-   } 
-    }
-}, [])
 
   return (
    <div>
@@ -43,13 +34,13 @@ function App() {
       inCart={inCart}
       itemsTotal={itemsTotal}/>
     <Routes>
-      <Route exact path="/" element={
+      <Route exact path="/webshop/" element={
         <Main 
         inCart={inCart}
         setInCart={setInCart}
         handleSelected={handleSelected}
         />}/>
-      <Route path="/basket" element={
+      <Route path="/webshop/basket" element={
         <Basket 
         inCart={inCart}
         setInCart={setInCart}

@@ -10,8 +10,8 @@ export default function Navbar({inCart, itemsTotal}) {
     <div className="navbar-container">
      <h2>Webshop App</h2>
      <div className="navbar-links">
-         <h3><Link className="navbar-link" to="/">Products </Link></h3>
-         <h3><Link className="navbar-link basket" to="/basket">Basket 
+         <h3><Link className="navbar-link" to="/webshop/git">Products </Link></h3>
+         <h3><Link className="navbar-link basket" to="/webshop/basket">Basket 
          <span className="total">{`${itemsTotal > 0 ? itemsTotal : ""}\u20AC`}</span>
           <RiShoppingCart2Line/>
           <span className={itemsTotal > 1 ? "cart-nmb" : "hidden"}>{itemNmb}</span></Link></h3>
