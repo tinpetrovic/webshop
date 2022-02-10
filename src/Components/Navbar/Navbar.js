@@ -14,7 +14,7 @@ export default function Navbar({inCart, itemsTotal}) {
          <h3><Link className="navbar-link basket" to="/webshop/basket">Basket 
          <span className="total">{`${itemsTotal > 0 ? itemsTotal : ""}\u20AC`}</span>
           <RiShoppingCart2Line/>
-          <span className={itemsTotal > 1 ? "cart-nmb" : "hidden"}>{itemNmb}</span></Link></h3>
+          <span className="items-nmbr" className={itemsTotal > 1 ? "cart-nmb" : "hidden"}>{itemNmb}</span></Link></h3>
      </div>
     </div>
   );

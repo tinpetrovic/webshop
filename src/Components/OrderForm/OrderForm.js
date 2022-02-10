@@ -3,7 +3,7 @@ import "./orderForm.scss"
 
 
 
-function OrderForm({formValues, setFormValues, order, setOrder, handleOrder, itemsTotal, inCart, setInCart, ordered, setOrdered, cartOrdered, setCartOrdered, orderPrice, setOrderPrice}) {
+function OrderForm({formValues, setFormValues, order, setOrder, handleOrder, itemsTotal, inCart, setInCart, ordered, setOrdered, cartOrdered, setCartOrdered, orderPrice, setOrderPrice, finalPrice}) {
   const [formErrors, setFormErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -19,7 +19,7 @@ function OrderForm({formValues, setFormValues, order, setOrder, handleOrder, ite
           setIsSubmitted(true)
           setOrdered(true)
           setCartOrdered(inCart)
-          setOrderPrice(itemsTotal)
+          setOrderPrice(finalPrice)
           if(Object.keys(formErrors).length === 0 & isSubmitted) {
             console.log(`
             Your order has been placed! 
@@ -27,7 +27,7 @@ function OrderForm({formValues, setFormValues, order, setOrder, handleOrder, ite
             Mail: ${formValues.email},
             Address: ˘${formValues.address},
             Card Number: ${formValues.card},
-            Total Price: ${itemsTotal}
+            Total Price: ${finalPrice}
             `)
             setOrder(false) 
             setInCart([])
@@ -59,10 +59,12 @@ function OrderForm({formValues, setFormValues, order, setOrder, handleOrder, ite
               }
           }, [formErrors])
 
+
   return (
     <div className={order ? "order-form active" : "order-form"}>
         <div className="order-wrapper">
-            <h2>Order Form</h2>
+            <h2>Checkout</h2>
+            <p>{`TOTAL PRICE (before promotions): ${itemsTotal}\u20AC`}</p>
             <hr/>
             <form onSubmit={handleSubmit}>
                 <div className="field">

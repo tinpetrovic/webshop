@@ -4,12 +4,16 @@ import "./promotions.scss"
 import OrderForm from "../OrderForm/OrderForm"
 
 export default function Basket({inCart, setInCart, handleRemove, handleSelected, itemsTotal }) {
+  let finalPrice = itemsTotal
   const initialValues = {email: "", address: "", card:""}
   
   const [ordered, setOrdered] = useState(false)
   const [cartOrdered, setCartOrdered] = useState([])
   const [formValues, setFormValues] = useState(initialValues)
   const [orderPrice, setOrderPrice] = useState([])
+  const [code, setCode] = useState("")
+  const [codeErrors, setCodeErrors] = useState("")
+  const [isSubmit, setIsSubmit] = useState(false)
   
   
   const [prom1, setProm1] = useState(false)
@@ -17,14 +21,18 @@ export default function Basket({inCart, setInCart, handleRemove, handleSelected,
   const [prom3, setProm3] = useState(false)
   const [order, setOrder] = useState(false)
 
-if(prom1) {
-  itemsTotal = (itemsTotal - itemsTotal * 0.2).toFixed(2)
-} else if (prom2 && prom3) {
-  itemsTotal = ((itemsTotal - (itemsTotal * 0.05)) - 20).toFixed(2)
+if (prom1) {
+  finalPrice = (itemsTotal - itemsTotal * 0.2).toFixed(2)
 } else if (prom2) {
-  itemsTotal = (itemsTotal - itemsTotal * 0.05).toFixed(2)
+  finalPrice = ((itemsTotal - (itemsTotal * 0.05))).toFixed(2)
+  if (prom3) {
+    finalPrice = (finalPrice - 20).toFixed(2)
+  }
 } else if (prom3) {
-  itemsTotal = (itemsTotal - 20).toFixed(2)
+  finalPrice = (itemsTotal - 20).toFixed(2)
+  if(prom2) {
+    finalPrice = (finalPrice - (finalPrice * 0.5)).toFixed(2)
+  }
 } 
 
 const handleOrder = (e) => {
@@ -34,19 +42,62 @@ const handleOrder = (e) => {
 
 useEffect(() => {
   for(let i = 0; i < inCart.length; i++) {
-    if (inCart[i].name === "Motion Sensor" && inCart[i].qt % 3 == 0) {
-     console.log("discount Motion Sensor")
-     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 21.666} : y))
-   } else if (inCart[i].name === "Smoke Sensor" && inCart[i].qt % 2 == 0) {
-    console.log("discount Smoke sensor")
+    if (inCart[i].name === "Motion Sensor" && inCart[i].qt % 3 === 0) {
+     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 21.66666667} : y))
+   } else if (inCart[i].name === "Smoke Sensor" && inCart[i].qt % 2 === 0) {
     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 17.5} : y))
   }
 }
 }, [itemsTotal])
 
+
+const handleChange = (e) => {
+e.preventDefault()
+const {value} = e.target
+setCode(value)
+}
+
+const handleSubmit = (e) => {
+e.preventDefault()
+setCodeErrors(validation(code))
+setIsSubmit(true)
+}
+
+const validation = (value) => {
+  let errors = ""
+  if (!value) {
+    errors = "No code entered!"
+  } else if (value === "20%OFF" && prom2 === false && prom3 === false) {
+    setProm1(true)
+  } else if (value === "20%OFF" && prom2 === true) {
+    errors = "Cannot combine this promotions!"
+  } else if (value === "20%OFF" && prom3 === true) {
+    errors = "Cannot combine this promotions!"
+  } else if (value === "5%OFF" && prom1 === false) {
+    setProm2(true)
+  } else if (value === "5%OFF" && prom1 === true) {
+    errors = "Cannot combine this promotions!"
+  } else if (value === "20EUROOFF" && prom1 === false) {
+    setProm3(true)
+  } else if (value === "20EUROOFF" && prom1 === true) {
+    errors = "Cannot combine this promotions!"
+  } else if (value !=="20%OFF" || value !=="5%OFF" || value !=="20EUROOFF") {
+    errors = "Not a valid code!"
+  }
+  return errors
+}
+
+useEffect(() => {
+  if(Object.keys(codeErrors).length === 0 && isSubmit) {
+  }
+  console.log(codeErrors)
+}, [codeErrors])
+
+
   return (
     <div className="basket-container">
       <OrderForm
+      finalPrice={finalPrice}
       itemsTotal={itemsTotal}
       inCart={inCart}
       setInCart={setInCart}
@@ -99,37 +150,36 @@ useEffect(() => {
         </div>
       })}
         <div className="basket-total">
-          <h2 >{`TOTAL: ${itemsTotal} \u20AC`}</h2>
+          <h2 >{`TOTAL: ${finalPrice} \u20AC`}</h2>
           <button className="btn order-btn" onClick={handleOrder}>Place Order</button>
         </div>
         
         
         <div className="promotions-container">
-        <h3>Promotions:</h3>
+        <h3>Promotion codes:</h3>
+          <div className="promotion-form">
+            <form onSubmit={handleSubmit}>
+              <label>
+                Code:
+                <input
+                name="codes"
+                value={code}
+                type="text"
+                placeholder="Type promo code"
+                onChange={handleChange}
+                />
+                <p className="error">{codeErrors && codeErrors}</p>
+              </label>
+              <button className="btn code-btn" type="submit">Submit code</button>
+            </form>
+          
             <div className="promotions-btns-wrapper">
-                <div className="prom-wrap">
-                    <button className="btn prom-btn" disabled={prom2 || prom3} onClick={() => setProm1(true)}>20% OFF
-                        <p className="tooltiptext" >20% off final cost cannot be used in conjunction with other codes</p>
-                    </button>
-                    {prom1 && 
-                    <button className="prom-btn clear-prom-btn" onClick={() => setProm1(false)}>Clear 20% OFF</button>}
-                </div>
-
-                <div className="prom-wrap">
-                <button className="btn prom-btn" disabled={prom1} onClick={() => setProm2(true)}>5% OFF
-                    <p className="tooltiptext" >5% off final cost can be used in conjunction with other codes</p>
-                </button>
-                {prom2 && <button className="prom-btn clear-prom-btn" onClick={() => setProm2(false)}>Clear 5% OFF</button>}
-                </div>
-
-                <div className="prom-wrap">
-                <button className="btn prom-btn" disabled={prom1} onClick={() => setProm3(true)}>20 EURO OFF
-                    <p className="tooltiptext" >20 EUR off final cost can be used in conjunction with other codes</p>
-                </button>
-                {prom3 && <button className="prom-btn clear-prom-btn" onClick={() => setProm3(false)}>Clear 20 EURO OFF</button>}
-                </div>
-            </div>
-  </div>
+              {prom1 && <button className="prom-btn clear-prom-btn" onClick={() => setProm1(false)}>Clear 20% OFF</button>}
+              {prom2 && <button className="prom-btn clear-prom-btn" onClick={() => setProm2(false)}>Clear 5% OFF</button>}
+              {prom3 && <button className="prom-btn clear-prom-btn" onClick={() => setProm3(false)}>Clear 20 EURO OFF</button>}
+            </div> 
+          </div>
+         </div>
       </div>}
     </div>
   );

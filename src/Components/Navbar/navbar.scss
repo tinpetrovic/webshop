@@ -57,6 +57,10 @@
         transform: scaleX(1)
     }
 
+.navbar-link:hover .cart-nmb {
+    color: $white-clr;
+}
+
     .navbar-links .total {
         margin: 0 .2em;
     }

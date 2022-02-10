@@ -1,23 +1,76 @@
 @import "../../colors";
 
+.promotions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 .promotions-container h3 {
-    margin-bottom: .5em
+    margin-left: 25px;
+    margin-bottom: .5em;
+    font-weight: 700;
+}
+
+.promotion-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 300px;
+    margin-left: 25px;
+}
+
+.promotions-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 2em;
+    color: $white-clr;
+    background: $accent-clr;
+    position: relative;
+    border-left: 5px solid $white-clr;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1em;
+}
+
+.promotions-container form label p  {
+    margin: .3em 0;
+}
+
+.promotions-container form label input {
+    margin-top: .5em;
+    border-radius: 100px;
+    padding: .7em;
+    border: none;
+    width: 100%;
+}
+
+.code-btn {
+    padding: .7em 2.5em;
+    border: 1px solid $accent2-clr;
+    transition: .4 ease;
+
+    &:hover,
+    &:focus {
+        background-color: $black-clr;
+        color: $accent2-clr
+    }
+}
+
+.error {
+    margin-top: .5em;
 }
 
 .promotions-btns-wrapper {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 300px;
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
 }
-.prom-wrap {
-    margin: .5em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 
 .prom-btn {
     display: inline-block;
@@ -26,7 +79,6 @@
     height: 50px;
     background-color: $proms;
     border: 0;
-    margin: 0 .5em;
     cursor: pointer;
 
     &:hover,
@@ -71,16 +123,27 @@
     }
 }
 
-@media(min-width: 720px) {
-    .promotions-btns-wrapper {
-        flex-direction: row;
+@media(min-width: 840px) {
+    .promotions-container {
+       justify-content: center;
+       align-items: flex-start;
+       width: 100%;
+       padding: 0 2em;
+    }
+    
+    .promotion-form {
+       flex-direction: row;
+       justify-content: space-between;
+        width: 100%;
     }
 
-    .prom-wrap {
-        flex-direction: column;
+    .promotions-container form {
+            width: 60%;
     }
-
+    
     .promotions-btns-wrapper {
-        height: 100px;
+      flex-direction: column;
+      width: auto;
+      margin-left: 1em;
     }
 }
