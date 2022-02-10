@@ -64,7 +64,7 @@ function OrderForm({formValues, setFormValues, order, setOrder, handleOrder, ite
     <div className={order ? "order-form active" : "order-form"}>
         <div className="order-wrapper">
             <h2>Checkout</h2>
-            <p>{`TOTAL PRICE (before promotions): ${itemsTotal}\u20AC`}</p>
+            <p>{`TOTAL PRICE (without promotion codes): ${itemsTotal}\u20AC`}</p>
             <hr/>
             <form onSubmit={handleSubmit}>
                 <div className="field">

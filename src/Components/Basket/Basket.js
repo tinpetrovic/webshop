@@ -6,6 +6,9 @@ import OrderForm from "../OrderForm/OrderForm"
 export default function Basket({inCart, setInCart, handleRemove, handleSelected, itemsTotal }) {
   let finalPrice = itemsTotal
   const initialValues = {email: "", address: "", card:""}
+  let v = itemsTotal - 20
+  let v1 = v - (v * 0.05)
+  let v2 = itemsTotal - (itemsTotal * 0.05) - 20
   
   const [ordered, setOrdered] = useState(false)
   const [cartOrdered, setCartOrdered] = useState([])
@@ -26,7 +29,9 @@ if (prom1) {
 } else if (prom2) {
   finalPrice = ((itemsTotal - (itemsTotal * 0.05))).toFixed(2)
   if (prom3) {
-    finalPrice = (finalPrice - 20).toFixed(2)
+    finalPrice =  (v1 < v2 ? v1 : v2 ).toFixed(2)
+    console.log(v1)
+    console.log(v2)
   }
 } else if (prom3) {
   finalPrice = (itemsTotal - 20).toFixed(2)
@@ -174,9 +179,9 @@ useEffect(() => {
             </form>
           
             <div className="promotions-btns-wrapper">
-              {prom1 && <button className="prom-btn clear-prom-btn" onClick={() => setProm1(false)}>Clear 20% OFF</button>}
-              {prom2 && <button className="prom-btn clear-prom-btn" onClick={() => setProm2(false)}>Clear 5% OFF</button>}
-              {prom3 && <button className="prom-btn clear-prom-btn" onClick={() => setProm3(false)}>Clear 20 EURO OFF</button>}
+              {prom1 && <button className="prom-btn clear-prom-btn" onClick={() => setProm1(false)}>Remove 20% OFF</button>}
+              {prom2 && <button className="prom-btn clear-prom-btn" onClick={() => setProm2(false)}>Remove 5% OFF</button>}
+              {prom3 && <button className="prom-btn clear-prom-btn" onClick={() => setProm3(false)}>Remove 20 EURO OFF</button>}
             </div> 
           </div>
          </div>
