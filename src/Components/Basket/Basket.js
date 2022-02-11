@@ -29,9 +29,7 @@ if (prom1) {
 } else if (prom2) {
   finalPrice = ((itemsTotal - (itemsTotal * 0.05))).toFixed(2)
   if (prom3) {
-    finalPrice =  (v1 < v2 ? v1 : v2 ).toFixed(2)
-    console.log(v1)
-    console.log(v2)
+    finalPrice =  (v1 < v2 ? v2 : v1 ).toFixed(2)
   }
 } else if (prom3) {
   finalPrice = (itemsTotal - 20).toFixed(2)
@@ -82,11 +80,11 @@ const validation = (value) => {
     setProm2(true)
   } else if (value === "5%OFF" && prom1 === true) {
     errors = "Cannot combine this promotions!"
-  } else if (value === "20EUROOFF" && prom1 === false) {
+  } else if (value === "20EUROFF" && prom1 === false) {
     setProm3(true)
-  } else if (value === "20EUROOFF" && prom1 === true) {
+  } else if (value === "20EUROFF" && prom1 === true) {
     errors = "Cannot combine this promotions!"
-  } else if (value !=="20%OFF" || value !=="5%OFF" || value !=="20EUROOFF") {
+  } else if (value !=="20%OFF" || value !=="5%OFF" || value !=="20EUROFF") {
     errors = "Not a valid code!"
   }
   return errors
@@ -181,7 +179,7 @@ useEffect(() => {
             <div className="promotions-btns-wrapper">
               {prom1 && <button className="prom-btn clear-prom-btn" onClick={() => setProm1(false)}>Remove 20% OFF</button>}
               {prom2 && <button className="prom-btn clear-prom-btn" onClick={() => setProm2(false)}>Remove 5% OFF</button>}
-              {prom3 && <button className="prom-btn clear-prom-btn" onClick={() => setProm3(false)}>Remove 20 EURO OFF</button>}
+              {prom3 && <button className="prom-btn clear-prom-btn" onClick={() => setProm3(false)}>Remove 20 EUR OFF</button>}
             </div> 
           </div>
          </div>
