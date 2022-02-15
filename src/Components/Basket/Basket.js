@@ -45,10 +45,16 @@ const handleOrder = (e) => {
 
 useEffect(() => {
   for(let i = 0; i < inCart.length; i++) {
-    if (inCart[i].name === "Motion Sensor" && inCart[i].qt % 3 === 0) {
-     setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 21.66666667} : y))
-   } else if (inCart[i].name === "Smoke Sensor" && inCart[i].qt % 2 === 0) {
-    setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 17.5} : y))
+  if (inCart[i].name === "Motion Sensor" && inCart[i].qt % 3 === 0) {
+  setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 21.666667} : y))
+} else if (inCart[i].name === "Motion Sensor" && inCart[i].qt % 3 !== 0) {
+  setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 24.99} : y))
+}
+   
+   if (inCart[i].name === "Smoke Sensor" && inCart[i].qt % 2 === 0) {
+    setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 17.50} : y))
+  } else if (inCart[i].name === "Smoke Sensor" && inCart[i].qt % 2 !== 0) {
+    setInCart(inCart.map(y => y.id === inCart[i].id ? {...inCart[i], price: 19.99} : y))
   }
 }
 }, [itemsTotal])

@@ -1,0 +1,190 @@
+.promotions-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.promotions-container h3 {
+  margin-left: 25px;
+  margin-bottom: .5em;
+  font-weight: 700;
+}
+
+.promotion-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 90%;
+  height: 300px;
+  margin-left: 25px;
+}
+
+.promotions-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 2em;
+  color: #fff;
+  background: #772D8B;
+  position: relative;
+  border-left: 5px solid #fff;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1em;
+}
+
+.promotions-container form label p {
+  margin: .3em 0;
+}
+
+.promotions-container form label input {
+  margin-top: .5em;
+  border-radius: 100px;
+  padding: .7em;
+  border: none;
+  width: 100%;
+}
+
+.code-btn {
+  padding: .7em 2.5em;
+  border: 1px solid #DD7596;
+  -webkit-transition: .4 ease;
+  transition: .4 ease;
+  margin-top: 2em;
+}
+
+.code-btn:hover, .code-btn:focus {
+  background-color: #000;
+  color: #DD7596;
+}
+
+.error {
+  margin-top: .5em;
+}
+
+.promotions-btns-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.prom-btn {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background-color: #ecd341;
+  border: 0;
+  cursor: pointer;
+}
+
+.prom-btn:hover, .prom-btn:focus {
+  background-color: #d4d4d4;
+}
+
+.clear-prom-btn {
+  background-color: #966d5d;
+}
+
+.clear-prom-btn:hover, .clear-prom-btn:focus {
+  background-color: #a17c7c;
+}
+
+.prom-btn .tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  bottom: 30;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.prom-btn:hover .tooltiptext,
+.prom-btn:focus .tooltiptext {
+  visibility: visible;
+}
+
+:disabled {
+  cursor: not-allowed;
+  background: #ca4c4c;
+}
+
+:disabled:hover {
+  cursor: not-allowed;
+  background: #ca4c4c;
+}
+
+@media (min-width: 840px) {
+  .promotions-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 100%;
+    padding: 0 2em;
+  }
+  .promotion-form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+  }
+  .promotions-container form {
+    width: 60%;
+  }
+  .promotions-btns-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: auto;
+    margin-left: 1em;
+  }
+  .prom-btn {
+    margin-bottom: 2em;
+  }
+}
+/*# sourceMappingURL=promotions.css.map */

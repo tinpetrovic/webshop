@@ -1,0 +1,117 @@
+/* ===ORDER - FORM=== */
+.order-form {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: calc(100% + 100px);
+}
+
+.active {
+  visibility: visible;
+}
+
+.order-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #fff;
+  width: 60%;
+  padding: 3em;
+}
+
+.order-wrapper h2 {
+  margin-bottom: .5em;
+}
+
+.order-wrapper p {
+  margin-bottom: 2em;
+  font-weight: 700;
+}
+
+.order-wrapper form {
+  width: 100%;
+}
+
+.field + .field {
+  margin-top: 2em;
+}
+
+.field {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.field input {
+  padding: .4em;
+  width: 100%;
+}
+
+.field label {
+  font-weight: 700;
+  margin-bottom: .2em;
+}
+
+.error {
+  color: red;
+}
+
+.submit-btn,
+.back-btn {
+  margin-top: 3em;
+  width: 100%;
+  padding: 1em 3em;
+  background: #772D8B;
+  color: #fff;
+  border: 1px solid #DD7596;
+  -webkit-transition: .4s ease;
+  transition: .4s ease;
+}
+
+.submit-btn:hover, .submit-btn:focus,
+.back-btn:hover,
+.back-btn:focus {
+  background: #000;
+  border: 1px solid #DD7596;
+  color: #DD7596;
+}
+/*# sourceMappingURL=orderForm.css.map */

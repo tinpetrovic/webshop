@@ -1,4 +1,23 @@
 .main-container {
   background-color: #DD7596;
+  min-height: 100vh;
+  margin-top: 100px;
+}
+
+.main-wrapper {
+  padding: 2em;
+  text-align: center;
+}
+
+.main-wrapper h1 {
+  margin-bottom: 2em;
+}
+
+.products-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1em;
 }
 /*# sourceMappingURL=main.css.map */
